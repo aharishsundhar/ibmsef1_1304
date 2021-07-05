@@ -1,0 +1,63 @@
+---
+openapi: 3.0.0
+info:
+   version: 1.3.0
+   title: ibmsef1 open api specification
+   description: user API
+   termsOfService: http://api_url/terms/
+   contact:
+      name: ContactName
+      email: hello@wolox.co
+      url: https://www.wolox.com.ar/
+   license:
+      name: Apache 2.0
+      url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+   - url: http://localhost:8005
+     description: user
+tags:
+- name: users
+paths:
+   "/users":
+      get:
+         tags:
+         -  users
+         description: GpGetAllValues
+         responses:
+            200:
+               description: Success
+            400:
+               description: Bad Request
+            404:
+               description: Not Found
+            500:
+               description: Internal Server Error
+      post:
+         tags:
+         -  users
+         description: GpCreate
+         requestBody:
+            content:
+               application/json:
+                  schema:
+                     $ref: "#/components/schemas/users"
+         responses:
+            200:
+               description: Success
+            400:
+               description: Bad Request
+            404:
+               description: Not Found
+            500:
+               description: Internal Server Error
+components:
+   schemas:
+      users:
+         type: object
+         properties:
+            firstname:
+               type: "string"
+               description: Description
+            secondname:
+               type: "string"
+               description: Description

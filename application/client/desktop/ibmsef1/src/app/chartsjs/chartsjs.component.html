@@ -1,0 +1,50 @@
+<h2 class="screen-align">Chartsjs</h2>
+<div id="template-i5gw" class="row">
+    <div id="template-irot" class="cell">
+        <label id="template-ip26" class="label">user1</label>
+        <input id="template-icmg" [(ngModel)]="chart.user1" [ngModelOptions]="{standalone: true}"
+        class="input form-control" />
+        <button id="template-icwn5" (click)="GpCreate()" class="button btn btn-primary">create</button>
+    </div>
+    <div id="template-iqqf" class="cell">
+        <label id="template-io5z" class="label">user2</label>
+        <input id="template-irui" [(ngModel)]="chart.user2" [ngModelOptions]="{standalone: true}"
+        class="input form-control" />
+    </div>
+    <div id="template-igkz" class="cell">
+        <label id="template-i224" class="label">user3</label>
+        <input id="template-iduxq" [(ngModel)]="chart.user3" [ngModelOptions]="{standalone: true}"
+        class="input form-control" />
+    </div>
+</div>
+<div name="grid_template-ib9hd" class="">
+    <div class="tableBg">
+        <table id="table" class="table table-bordered  table-striped table-curved"
+        data-show-header="true" data-pagination="true" data-id-field="name">
+            <thead class="table table-hover">
+                <tr>
+                    <th *ngFor="let column of columnDefs">{{column.headerName}}</th>
+                </tr>
+            </thead>
+            <tbody class="table-design" *ngIf="rowData.length==0">
+                <td style="text-align: center;" colspan="5">No Data Found</td>
+            </tbody>
+            <tbody class="table-design" *ngIf="rowData.length>0">
+                <tr *ngFor="let values of rowData | slice: (page-1) * paginationPageSize :(page-1) * paginationPageSize + paginationPageSize">
+                    <td>{{ values.user1 }}</td>
+                    <td>{{ values.user2 }}</td>
+                    <td>{{ values.user3 }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="bottomPage">
+        <div class="text-right">
+            <ngb-pagination class="d-flex justify-content-start" [(page)]="page" [maxSize]="5"
+            [rotate]="true" [pageSize]="paginationPageSize" [collectionSize]="rowData.length"
+            [boundaryLinks]="true"></ngb-pagination>
+        </div>
+    </div>
+    <div id="myGrid" class=""></div>
+</div>
+<div id="myGrid" class=""></div>
